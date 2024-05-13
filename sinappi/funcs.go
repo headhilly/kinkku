@@ -11,24 +11,34 @@ import (
 )
 
 func StartUp() {
-	banner, err := os.ReadFile("./sinappi/banner.txt")
-	if err != nil {
-		fmt.Println("Error printing my sweet banner:", err)
-	}
-	fmt.Println(FgMagenta + string(banner) + Reset)
-	fmt.Println(FgCyan + Italic + "------------------------Ain't nobody got time for that !-------------------------" + Reset)
+
+	fmt.Println(FgMagenta + banner + Reset)
+	fmt.Println(FgCyan + Italic + slogan + Reset)
 }
 
 func GetArgs() {
 
 	if len(os.Args) != 3 {
-		fmt.Println(FgRed + "It's literally just 2 argument bro how can you fuck this up? Here's a usage example" + Reset)
-		fmt.Println("$ go run . ./directory 6969")
+		fmt.Println(FgRed + "Oops, skill issue: You got the ham, but where is the mustard?" + Reset)
+		fmt.Println("Wrong number of arguments.")
+		fmt.Println("kinkku usage example:")
+		fmt.Println("$ kinkku ./directory 6969")
 		os.Exit(0)
 
 	}
 	path = os.Args[1]
 	port = os.Args[2]
+
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		fmt.Println(FgRed + "Oops, skill issue: Can't find your fridge." + Reset)
+		fmt.Println("Provided directory path does not exist.")
+		fmt.Println("kinkku usage example:")
+		fmt.Println("$ kinkku ./directory 6969")
+
+		os.Exit(0)
+
+		// Handle the case where the directory does not exist
+	}
 }
 
 // Function to restart the Go server
@@ -46,22 +56,18 @@ func RestartServer() {
 		goRun.Stdout = os.Stdout
 		goRun.Stderr = os.Stderr
 		if err := goRun.Start(); err != nil {
+			fmt.Println(FgRed + "Oops, skill issue: there is no ham to serve." + Reset)
 			fmt.Println("Error starting server:", err)
-			return
+
+			os.Exit(0)
 		}
 		if restartCount == 0 {
-			fmt.Println(FgGreen + "Server is up!" + Reset)
+			fmt.Println(FgGreen + "Server is up! Let's Go!" + Reset)
 			restartCount++
 		} else if restartCount == 69 {
 			fmt.Println(FgGreen + "(" + strconv.Itoa(restartCount) + ") " + "Server restarted." + Reset)
-			noice, err := os.ReadFile("./sinappi/noice.txt")
 			fmt.Println(FgCyan + string(noice) + Reset)
 			restartCount++
-			if err != nil {
-				fmt.Println("Error printing my sweet banner:", err)
-				fmt.Println(FgCyan + string(noice) + Reset)
-
-			}
 		} else {
 			fmt.Println(FgGreen + "(" + strconv.Itoa(restartCount) + ") " + "Server restarted." + Reset)
 			restartCount++
@@ -84,17 +90,23 @@ func killServerOnPort(port string) error {
 // Function to watch for file changes recursively in a directory
 func WatchFiles(changes chan<- string) {
 	fileModTimes := getFileModTimes(path)
-
+	goFilesFound := false
 	err := filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
 		if !info.IsDir() && strings.HasSuffix(path, ".go") {
+			goFilesFound = true // Set to true if Go file is found
 		}
 		return nil
 	})
 	if err != nil {
 		fmt.Println("Error:", err)
+	}
+	if !goFilesFound {
+		fmt.Println(FgRed + "Oops, skill issue: there is no ham to serve." + Reset)
+		fmt.Println("No Go files found in provided directory.")
+		os.Exit(0)
 	}
 
 	// Continuously monitor for file changes

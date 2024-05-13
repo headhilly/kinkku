@@ -2,11 +2,13 @@
 
 ## Usage:
 
-1. **Clone Repository**: Clone this repository to your local machine using the following command:
+1. **Clone Repository**: Download or clone this repository to your local machine using the following command:
 
     ```bash
     git clone https://github.com/headhilly/kinkku.git
     ```
+
+
 
 2. **Navigate to Project Directory**: Open a terminal and navigate to the directory `/kinkku`.
 
@@ -22,3 +24,8 @@
 2. It will look for Go files in your server directory and start monitoring them for changes.
 3. Whenever a modification is detected, it will automatically restart the server for you.
 4. It will also notice any new Go files created and include them in the monitoring process.
+
+
+go build
+
+sudo mv kinkku /usr/local/bin
