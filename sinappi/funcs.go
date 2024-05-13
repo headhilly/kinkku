@@ -1,4 +1,4 @@
-package main
+package kinkku
 
 import (
 	"fmt"
@@ -10,37 +10,29 @@ import (
 	"time"
 )
 
-var (
-	port                 = "8080"    // Specify the port your server is running on
-	path                 = "../cars" // Specify the path to your project directory
-	modificationDetected = false     // Flag to track if any file modification has been detected
-	restartCount         = 0
-)
-
-func main() {
-	//run the server
-	restartServer()
-	// Create a channel to receive file change events
-	fileChanges := make(chan string)
-
-	// Start watching for file changes
-	go watchFiles(fileChanges)
-
-	// Watch for file change events and restart the server
-	for {
-		select {
-		case <-fileChanges:
-			// If a modification has been detected, restart the server
-			if modificationDetected {
-				restartServer()
-				modificationDetected = false // Reset the flag after restarting
-			}
-		}
+func StartUp() {
+	banner, err := os.ReadFile("./sinappi/banner.txt")
+	if err != nil {
+		fmt.Println("Error printing my sweet banner:", err)
 	}
+	fmt.Println(FgMagenta + string(banner) + Reset)
+	fmt.Println(FgCyan + Italic + "------------------------Ain't nobody got time for that !-------------------------" + Reset)
+}
+
+func GetArgs() {
+
+	if len(os.Args) != 3 {
+		fmt.Println(FgRed + "It's literally just 2 argument bro how can you fuck this up? Here's a usage example" + Reset)
+		fmt.Println("$ go run . ./directory 6969")
+		os.Exit(0)
+
+	}
+	path = os.Args[1]
+	port = os.Args[2]
 }
 
 // Function to restart the Go server
-func restartServer() {
+func RestartServer() {
 
 	// Kill any process listening on the specified port
 	if err := killServerOnPort(port); err != nil {
@@ -58,10 +50,19 @@ func restartServer() {
 			return
 		}
 		if restartCount == 0 {
-			fmt.Println("Server is running")
+			fmt.Println(FgGreen + "Server is up!" + Reset)
 			restartCount++
+		} else if restartCount == 69 {
+			fmt.Println(FgGreen + "(" + strconv.Itoa(restartCount) + ") " + "Server restarted." + Reset)
+			noice, err := os.ReadFile("./sinappi/noice.txt")
+			if err != nil {
+				fmt.Println("Error printing my sweet banner:", err)
+				fmt.Println(FgCyan + string(noice) + Reset)
+				restartCount++
+			}
 		} else {
-			fmt.Println("(" + strconv.Itoa(restartCount) + ") " + "server restarted")
+			fmt.Println(FgGreen + "(" + strconv.Itoa(restartCount) + ") " + "Server restarted." + Reset)
+			restartCount++
 		}
 
 		// Wait for the server to start
@@ -79,7 +80,7 @@ func killServerOnPort(port string) error {
 }
 
 // Function to watch for file changes recursively in a directory
-func watchFiles(changes chan<- string) {
+func WatchFiles(changes chan<- string) {
 	fileModTimes := getFileModTimes(path)
 
 	err := filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
@@ -119,14 +120,14 @@ func checkFileModifications(path string, info os.FileInfo, fileModTimes map[stri
 	if strings.HasSuffix(path, ".go") {
 		if !lastModTime.IsZero() {
 			if modTime.After(lastModTime) {
-				fmt.Println("Go file modified:", path)
+				fmt.Println(FgMagenta + "Go file modification detected:" + Reset + path)
 				changes <- path
 				fileModTimes[path] = modTime
-				modificationDetected = true // Set the flag indicating modification detected
+				ModificationDetected = true // Set the flag indicating modification detected
 				//            fmt.Println("Modification time updated for:", path, "to", modTime)
 			}
 		} else {
-			fmt.Println("Initial detection of file:", path)
+			fmt.Println(FgYellow + "Go file found:" + Reset + path)
 			changes <- path
 			fileModTimes[path] = modTime
 		}
@@ -137,3 +138,27 @@ func getFileModTimes(path string) map[string]time.Time {
 	fileModTimes := make(map[string]time.Time)
 	return fileModTimes
 }
+
+/*
+       /\   /\
+         \_/
+    __   / \   __
+  -'  `. \_/ .'  `-
+        \/ \/
+   _.---(   )---._
+_.'   _.-\_/-._   `._
+     /   /_\   \
+    /   /___\   \
+   /   |_____|   \
+_.'    | ___ |    `._                             not all bugs are bad!
+        \___/                                               stop bug discrimination!
+
+
+
+
+           \(")/
+           -( )-
+           /(_)\
+
+
+*/
