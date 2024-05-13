@@ -14,7 +14,7 @@
     go run . /servers/myserver 8080
     ```
 
-## Now Kinkku is running. Here's what it does:
+# Now Kinkku is running. Here's what it does:
 
 1. It will start your server by performing `go run .` in the provided directory.
 2. It will look for Go files in your server directory and start monitoring them for changes.
