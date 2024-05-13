@@ -10,19 +10,22 @@ PS. Kinkku has only been tested on Linux. But I guess other versions could be do
 
 ## Installation
 
-1. **Clone Repository**: Clone this repository to your local machine using the following command:
+1. **Clone Repository**:
+Clone this repository to your local machine using the following command:
 
     ```bash
     git clone https://github.com/headhilly/kinkku.git
     ```
 
-2. **Navigate to Project Directory**: Change into the directory containing the Kinkku files:
+2. **Navigate to Project Directory**:
+Change into the directory containing the Kinkku files:
 
     ```bash
     cd kinkku
     ```
 
-3. **Build and Install**: Build the Kinkku binary and move it to the `/usr/local/bin` directory using the following commands:
+3. **Build and Install**:
+Build the Kinkku binary and move it to the `/usr/local/bin` directory using the following commands:
 
     ```bash
     go build
@@ -73,11 +76,11 @@ kinkku will be notified whenever any go file is modifed (bars).
 When a modification is detected in, a message will be printed in your terminal as so:
 
 ```bash
-"Go file modification detected:example/ham/burger.go
+Go file modification detected:example/ham/burger.go
 ```
 followed by kinkku shutting down any activity in the port you have provided and instantly restarting the server.
 
-This will allow you to bascially have a live preview of your server while you are working on it.
+This will allow you to bascially have a live preview of your server while working on it.
 
 # All you need to do is save and refresh the page!
 
@@ -87,7 +90,7 @@ Which means that if you have auto-save turned on you might get flooded with mess
 
 5. ### Kinkku minds it's own business!
 
-Kinkku will NOT interfer with any messages that any other program is printing in your console and will will just do it's own thing independently, without interrupting any other activity.
+Kinkku will NOT interfere with any messages that any other program is printing in your console and will will just do it's own thing independently, without interrupting any other activity.
 For example this could be helpful whenever you are making modifications in your code while debugging, you can instantly (after you save) see if any errors are being printed out in the terminal.
 
 
