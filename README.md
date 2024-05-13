@@ -1,4 +1,4 @@
-# kinkku v1.0
+# Kinkku v1.0
 
 ## Usage:
 
