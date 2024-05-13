@@ -1,3 +1,5 @@
+# kinkku v1.0
+
 ## Usage
 
 1. **Clone Repository**: Clone this repository to your local machine using the following command:
