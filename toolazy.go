@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -13,9 +14,12 @@ var (
 	port                 = "8080"    // Specify the port your server is running on
 	path                 = "../cars" // Specify the path to your project directory
 	modificationDetected = false     // Flag to track if any file modification has been detected
+	restartCount         = 0
 )
 
 func main() {
+	//run the server
+	restartServer()
 	// Create a channel to receive file change events
 	fileChanges := make(chan string)
 
@@ -37,6 +41,7 @@ func main() {
 
 // Function to restart the Go server
 func restartServer() {
+
 	// Kill any process listening on the specified port
 	if err := killServerOnPort(port); err != nil {
 		fmt.Println("Error killing server:", err)
@@ -52,7 +57,13 @@ func restartServer() {
 			fmt.Println("Error starting server:", err)
 			return
 		}
-		fmt.Println("server restarted")
+		if restartCount == 0 {
+			fmt.Println("Server is running")
+			restartCount++
+		} else {
+			fmt.Println("(" + strconv.Itoa(restartCount) + ") " + "server restarted")
+		}
+
 		// Wait for the server to start
 		// After restarting refresh the page
 	}()
