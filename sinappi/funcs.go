@@ -55,10 +55,12 @@ func RestartServer() {
 		} else if restartCount == 69 {
 			fmt.Println(FgGreen + "(" + strconv.Itoa(restartCount) + ") " + "Server restarted." + Reset)
 			noice, err := os.ReadFile("./sinappi/noice.txt")
+			fmt.Println(FgCyan + string(noice) + Reset)
+			restartCount++
 			if err != nil {
 				fmt.Println("Error printing my sweet banner:", err)
 				fmt.Println(FgCyan + string(noice) + Reset)
-				restartCount++
+
 			}
 		} else {
 			fmt.Println(FgGreen + "(" + strconv.Itoa(restartCount) + ") " + "Server restarted." + Reset)
