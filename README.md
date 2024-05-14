@@ -65,38 +65,38 @@ If the server doesn't run at that point, im afraid it's a you problem.
 
 2. ### Finds go files:
 After running the server, kinkku will scan the directory you have provided including all it's subdirectories for go files.
-if no go files are found, Kinkku will disappointed and exit.
+if no go files are found, Kinkku will exit.
 
 3. ### Monitors the files:
 The moment kinkku finds a go file, it starts monitoring it.
-Kinkku will also notice if you create a new go file in the directory or any of the subdirectories, and will instantly start monitoring it.
+Kinkku will also notice if you create a new go file in the directory or any of the subdirectories, and will start monitoring it.
 
 4. ### Detects modifications:
 kinkku will be notified whenever any go file is modifed (bars).
-When a modification is detected in, a message will be printed in your terminal as so:
+When a modification is detected, a message will be printed in your terminal as so:
 
 ```bash
 Go file modification detected:example/ham/burger.go
 ```
 followed by kinkku shutting down any activity in the port you have provided and instantly restarting the server.
 
-This will allow you to bascially have a live preview of your server while working on it.
+This will allow you to bascially have a live preview of your go server.
 
 # All you need to do is save and refresh the page!
 
 
 Keep in mind that whenever you save a go file, even if you haven't changed anything in the code, it registers as a modification.
-Which means that if you have auto-save turned on you might get flooded with messages in your terminal. I guess I could do a flag that turns off the messages  but can't bother yet. I will if there is enough demand for it.
+Which means that if you have auto-save turned on you might get flooded with messages in your terminal. I guess I could do a flag that turns off the messages  but can't bother yet. Just turn off your auto-save for now :)
 
 5. ### Kinkku minds it's own business!
 
-Kinkku will NOT interfere with any messages that any other program is printing in your console and will will just do it's own thing independently, without interrupting any other activity.
-For example this could be helpful whenever you are making modifications in your code while debugging, you can instantly (after you save) see if any errors are being printed out in the terminal.
+Kinkku will NOT interfere with any messages that any other program is printing in your console and will just do it's own thing independently.
+This could come in handy whenever you are debugging, you can instantly (when you save) see if any messages are being printed out in the terminal.
 
 
 ## Uninstall:
 
-To uninstall kinkku, simply the command:
+To uninstall kinkku, simply use the command:
 
 ```bash
 sudo rm /usr/local/bin/kinkku
