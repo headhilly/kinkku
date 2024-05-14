@@ -33,7 +33,9 @@ Build the Kinkku binary and move it to the `/usr/local/bin` directory using the 
     ```bash
     go build
     ```
-    Followed by
+
+Followed by
+
 
     ```bash
     sudo mv kinkku /usr/local/bin
