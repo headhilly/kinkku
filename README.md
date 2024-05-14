@@ -109,4 +109,4 @@ To uninstall kinkku, simply use the command:
 sudo rm /usr/local/bin/kinkku
 ```
 
-If you end up using this, please let me know! It would make my day :) and also feel free to contact me if you have any suggestions.
+## If you end up using this, please let me know! It would make my day :) and also feel free to contact me if you have any suggestions.
