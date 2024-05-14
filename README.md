@@ -14,32 +14,32 @@ ps. Don't judge my code. this was intended to be a tool just for myself and didn
 
 Clone this repository to your local machine using the following command:
 
-    ```bash
+```bash
     git clone https://github.com/headhilly/kinkku.git
-    ```
+```
 
 2. **Navigate to Project Directory**:
 
 Change into the directory containing the Kinkku files:
 
-    ```bash
+```bash
     cd kinkku
-    ```
+```
 
 3. **Build and Install**:
 
 Build the Kinkku binary and move it to the `/usr/local/bin` directory using the following commands:
 
-    ```bash
-    go build
-    ```
+```bash
+go build
+```
 
 Followed by
 
 
-    ```bash
-    sudo mv kinkku /usr/local/bin
-    ```
+```bash
+sudo mv kinkku /usr/local/bin
+```
 
 ## Usage
 
