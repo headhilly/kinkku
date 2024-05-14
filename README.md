@@ -15,14 +15,14 @@ ps. Don't judge my code. this was intended to be a tool just for myself and didn
 Clone this repository to your local machine using the following command:
 
 ```bash
-    git clone https://github.com/headhilly/kinkku.git
+git clone https://github.com/headhilly/kinkku.git
 ```
 
 2. **Navigate to Cloned Directory**:
 
 
 ```bash
-    cd kinkku
+cd kinkku
 ```
 
 3. **Build and Install**:
