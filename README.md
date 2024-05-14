@@ -100,6 +100,8 @@ Which means that if you have auto-save turned on you might get flooded with mess
 Kinkku will NOT interfere with any messages that any other program is printing in your console and will just do it's own thing independently.
 This could come in handy whenever you are debugging, you can instantly (when you save) see if any messages are being printed out in the terminal.
 
+## Thats it!
+If you end up using this tool, please let me know! It would make my day :) and also feel free to contact me if you have any suggestions.
 
 ## Uninstall:
 
@@ -108,5 +110,3 @@ To uninstall kinkku, simply use the command:
 ```bash
 sudo rm /usr/local/bin/kinkku
 ```
-
-## If you end up using this, please let me know! It would make my day :) and also feel free to contact me if you have any suggestions.
