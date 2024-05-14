@@ -1,10 +1,13 @@
 
 # Kinkku
 
-Kinkku is a simple command line tool that simulates a live preview of your golang server by restarting it whenever a go file is modified.
-I was annoyed by having to shut then run the server manually over and over again, so I made kinkku to make working on my school projects more convenient.
+## What is it?
 
-ps. Don't judge my code. this was intended to be a tool just for myself and didn't care much for good practices :)
+Kinkku is a simple command line tool that simulates a live preview of your golang server by restarting it whenever a go file is modified.
+
+I was annoyed by the cycle of manually shutting down and then running the server everytime I wanted to see changes, so I made kinkku to make working on my school projects more convenient.
+
+ps. Don't judge my code. this was intended to be a tool just for myself so I didn't care much for good practices :)
 
 ### This version has only been tested on Linux for now
 
@@ -86,7 +89,7 @@ followed by kinkku shutting down any activity in the port you have provided and 
 
 This will allow you to bascially have a live preview of your go server.
 
-# All you need to do is save and refresh the page.
+It's simple, all you need to do is save and refresh the page.
 
 
 Keep in mind that whenever you save a go file, even if you haven't changed anything in the code, it registers as a modification.
