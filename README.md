@@ -1,12 +1,12 @@
 
 # Kinkku
 
-Kinkku offers a seamless command line solution for Golang developers, providing a live preview of Go servers. Say goodbye to the hassle of manually shutting down and restarting your program to see the impact of your modifications.
+Kinkku is a simple command line tool that simulates a live preview of your golang server by restarting it whenever a go file is modified.
+I was annoyed by having to shut then run the server manually over and over again, so I made kinkku to make working on my school projects more convenient.
 
-If you end up using this, please let me know! It would make my day :)
-Also feel free to contact me if you have any questions or suggestions.
+ps. Don't judge my code. this was intended to be a tool just for myself and didn't care much for good practices :)
 
-PS. Kinkku has only been tested on Linux. But I guess other versions could be done if there is demand.
+### This version has only been tested on Linux for now
 
 ## Installation
 
@@ -101,3 +101,5 @@ To uninstall kinkku, simply use the command:
 ```bash
 sudo rm /usr/local/bin/kinkku
 ```
+
+If you end up using this, please let me know! It would make my day :) and also feel free to contact me if you have any suggestions.
