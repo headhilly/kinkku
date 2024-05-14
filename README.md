@@ -18,9 +18,8 @@ Clone this repository to your local machine using the following command:
     git clone https://github.com/headhilly/kinkku.git
 ```
 
-2. **Navigate to Project Directory**:
+2. **Navigate to Cloned Directory**:
 
-Change into the directory containing the Kinkku files:
 
 ```bash
     cd kinkku
@@ -28,13 +27,13 @@ Change into the directory containing the Kinkku files:
 
 3. **Build and Install**:
 
-Build the Kinkku binary and move it to the `/usr/local/bin` directory using the following commands:
+Build the kinkku binary and move it to the `/usr/local/bin` directory using the following commands:
 
 ```bash
 go build
 ```
 
-Followed by
+Then
 
 
 ```bash
