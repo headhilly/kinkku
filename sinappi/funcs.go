@@ -89,7 +89,7 @@ func killServerOnPort(port string) error {
 
 // Function to watch for file changes recursively in a directory
 func WatchFiles(changes chan<- string) {
-	fileModTimes := getFileModTimes(path)
+	fileModTimes := getFileModTimes()
 	goFilesFound := false
 	err := filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
@@ -148,7 +148,7 @@ func checkFileModifications(path string, info os.FileInfo, fileModTimes map[stri
 	}
 }
 
-func getFileModTimes(path string) map[string]time.Time {
+func getFileModTimes() map[string]time.Time {
 	fileModTimes := make(map[string]time.Time)
 	return fileModTimes
 }
