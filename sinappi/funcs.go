@@ -48,7 +48,7 @@ func RestartServer() {
 
 	// Kill any process listening on the specified port
 	if err := killServerOnPort(port); err != nil {
-		fmt.Println("Error killing serveri:", err)
+		fmt.Println("Error killing server:", err)
 	}
 	time.Sleep(20 * time.Millisecond)
 	// Start the server again in a separate goroutine
