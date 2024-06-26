@@ -1,10 +1,12 @@
 package kinkku
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strconv"
 	"strings"
 	"time"
@@ -78,9 +80,37 @@ func RestartServer() {
 	}()
 }
 
+// Function to find servers pid number on mac.
+func getServerPID(port string) (string, error) {
+	cmd := exec.Command("lsof", "-ti", "tcp:"+port)
+	output, err := cmd.Output()
+	if err != nil {
+		return "0", err
+	}
+	pid := strings.TrimSpace(string(output))
+	if len(pid) > 5 { //this part is for error correction. Not sure if it gets rid of all problems tho.
+		pid = pid[len(pid)-6:]
+	}
+	return pid, nil
+}
+
 // Function to kill a process listening on the specified port
 func killServerOnPort(port string) error {
-	cmd := exec.Command("fuser", "-k", "-n", "tcp", port)
+	var cmd *exec.Cmd
+	if runtime.GOOS == "darwin" {
+		pid, err := getServerPID(port)
+		if err != nil {
+			return err
+		}
+		if pid == "0" {
+			return errors.New("Server PID not found, unable to kill server. Please restart kinkku.")
+		}
+		// Kill process using pid-number on mac
+		cmd = exec.Command("kill", "-9", pid)
+	} else {
+		// Kill process on other systems.
+		cmd = exec.Command("fuser", "-k", "-n", "tcp", port)
+	}
 	if err := cmd.Run(); err != nil {
 		return nil
 	}
