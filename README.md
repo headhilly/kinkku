@@ -9,7 +9,6 @@ I was annoyed by the cycle of manually shutting down and then running the server
 
 ps. Don't judge my code. this was intended to be a tool just for myself so I didn't care much for good practices :)
 
-### This version has only been tested on Linux for now
 
 ## Installation
 
