@@ -102,6 +102,8 @@ This could come in handy whenever you are debugging, you can instantly (when you
 ## Thats it!
 If you end up using this tool, please let me know! It would make my day :) and also feel free to contact me if you have any suggestions.
 
+Discord: headhilly
+
 ## Uninstall:
 
 To uninstall kinkku, simply use the command:
