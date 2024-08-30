@@ -61,6 +61,7 @@ or if you are somewhere else, you can still navigate to the server as so:
 ```bash
 kinkku ../example/notporn/server 6969
 ```
+(Update: now if no extra arguments are added after kinkku it would use the current directory and port 8080 by default. If that's what you're using, then only use `kinkku` and you're good to go.)
 
 that's it! kinkku now got your back and you won't need to manually restart the server anymore everytime you modify your go files!
 
