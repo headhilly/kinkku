@@ -12,35 +12,28 @@ ps. Don't judge my code. this was intended to be a tool just for myself so I did
 
 ## Installation
 
-1. **Clone Repository**:
+1. **Install via Go**:
 
-Clone this repository to your local machine using the following command:
-
-```bash
-git clone https://github.com/headhilly/kinkku.git
-```
-
-2. **Navigate to Cloned Directory**:
-
+Use the following command to install `kinkku` directly:
 
 ```bash
-cd kinkku
-```
-
-3. **Build and Install**:
-
-Build the kinkku binary and move it to the `/usr/local/bin` directory using the following commands:
+  go install github.com/headhilly/kinkku@latest
+````
+2. **Add to PATH**:
 
 ```bash
-go build
+  export PATH=$PATH:$(go env GOPATH)/bin
 ```
 
-Then
-
+After adding the line, run the following to apply the changes:
 
 ```bash
-sudo mv kinkku /usr/local/bin
+  source ~/.bashrc  # or source ~/.zshrc for zsh users
+  # Optionally, you could close and restart the terminal
 ```
+
+Now, you should be able to run kinkku from anywhere on your system.
+
 
 ## Usage
 
