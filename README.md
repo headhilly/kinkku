@@ -12,33 +12,12 @@ ps. Don't judge my code. this was intended to be a tool just for myself so I did
 
 ## Installation
 
-1. **Clone Repository**:
-
-Clone this repository to your local machine using the following command:
+Just copy paste these commands to your terminal and you're good to go:
 
 ```bash
 git clone https://github.com/headhilly/kinkku.git
-```
-
-2. **Navigate to Cloned Directory**:
-
-
-```bash
 cd kinkku
-```
-
-3. **Build and Install**:
-
-Build the kinkku binary and move it to the `/usr/local/bin` directory using the following commands:
-
-```bash
 go build
-```
-
-Then
-
-
-```bash
 sudo mv kinkku /usr/local/bin
 ```
 
